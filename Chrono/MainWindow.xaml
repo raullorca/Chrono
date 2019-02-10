@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="TimeLabel" Content="00:00:00" FontSize="50" FontFamily="Segoe UI Light" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,276,0,57">
+            <Button x:Name="StartButton" Content="Start" FontSize="30" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="150" Height="60" Click="StartButton_Click"/>
+            <Button x:Name="PauseButton" Content="Pause" FontSize="30" HorizontalAlignment="Center" Margin="50,2,0,0" VerticalAlignment="Center" Width="150" Height="60" Click="PauseButton_Click"/>
+            <Button x:Name="StopButton" Content="Stop" FontSize="30" HorizontalAlignment="Center" Margin="50,2,0,0" VerticalAlignment="Center" Width="150" Height="60" Click="StopButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
