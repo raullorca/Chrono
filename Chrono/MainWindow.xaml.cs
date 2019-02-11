@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Services;
+using Services.Interfaces;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Chrono
 {
@@ -20,24 +10,33 @@ namespace Chrono
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+        IChronoTimer chrono;
         public MainWindow()
         {
             InitializeComponent();
+            chrono = ChronoTimer.Create(RefreshContentEvent);
+        }
+
+        private void RefreshContentEvent(object sender, EventArgs e)
+        {
+            chrono.AddSecond();
+            TimeLabel.Content = chrono.Value;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            chrono.Start();
         }
 
         private void PauseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            chrono.Pause();
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-
+            chrono.Stop();
         }
     }
 }
